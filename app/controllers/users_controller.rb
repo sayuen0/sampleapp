@@ -24,8 +24,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       #更新に成功した場合の処理
-      # render user_url
-      render "edit"
     else
       render "edit"
     end
