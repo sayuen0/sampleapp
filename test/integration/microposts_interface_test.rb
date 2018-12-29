@@ -11,9 +11,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'div.pagination'
     assert_select 'input[type=file]'
     #無効な送信
-    assert_no_difference 'Micropost.count' do
-      post microposts_path, params: {micropost: {content: ""}}
-    end
+    post microposts_path, params: {micropost: {content: ""}}
     assert_select 'div#error_explanation'
     #有効な送信
     content = "This micropost really ties the room together"
